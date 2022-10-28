@@ -17,7 +17,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1'
-    'kakoadyar.herokuapp.com'
+    'kakaodayar.herokuapp.com'
 ]
 DISABLE_COLLECTSTATIC=1
 
