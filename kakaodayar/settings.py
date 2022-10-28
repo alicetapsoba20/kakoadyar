@@ -16,7 +16,6 @@ SECRET_KEY = 'django-insecure-d&un^sxk!=h(*+4xmkb-#m1*0a+5dvfq1u)=vgft&r97xfljdr
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
     'kakaodayar.herokuapp.com'
 ]
 DISABLE_COLLECTSTATIC=1
