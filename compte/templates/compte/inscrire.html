@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    
+    <form class="form-detail p-4"  method="POST">
+        {% csrf_token %}
+        <h1>S'inscription</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 " >
+
+                    <div class="form-group">
+                        <label for="usr">Nom d'utilisateur:</label>
+                        <input type="text" class="form-control" id="usr" name="username">
+                    </div> 
+
+                    <div class="form-group">
+                        <label for="usr">Email:</label>
+                        <input type="text" class="form-control" id="usr" name="first_name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="usr">Entrer votre numero de telephone:</label>
+                        <input type="tel" class="form-control" id="usr" name="numero_employee">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="usr">Region:</label>
+                        <input type="text" class="form-control" id="usr" name="emplacement">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-outline-success">S'inscrire</button>
+                    </div>
+                </div>
+    
+            </div>
+        </div>   
+    </form>
+
+    <!-- <P>LE FORMULAIRE</P>
+    <form class="form-detail" action="#" method="POST">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 demo-content" >
+
+                    <div class="form-group">
+                        <label for="usr">Nom:</label>
+                        <input type="text" class="form-control" id="usr" name="last_name">
+                    </div> 
+
+                    <div class="form-group">
+                        <label for="usr">Prenom:</label>
+                        <input type="text" class="form-control" id="usr" name="first_name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="usr">Entrer votre numero:</label>
+                        <input type="tel" class="form-control" id="usr" name="numero_employee">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="usr">Region:</label>
+                        <input type="text" class="form-control" id="usr" name="emplacement">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment">Bref description:</label>
+                        <textarea class="form-control"  rows="5" id="comment" name="commentaire_sur_savoir_faire"></textarea>
+                    </div>
+
+                    <div>
+                        <button type="button" class="btn btn-outline-success">Envoyez</button>
+                    </div>
+                </div>
+                <div class="col-md-6  demo-content" >
+                    <img src="https://www.lsa-conso.fr/mediatheque/6/6/1/000523166_896x598_c.jpg" alt="">
+                </div>
+    
+            </div>
+        </div>   
+    </form> -->
+{% endblock  %}

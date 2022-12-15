@@ -1,13 +1,5 @@
-# from math import prod
-# from django.contrib import admin
-# from .models import Agriculteur, Produit
-# # class AgriculteurAdmin(admin.ModelAdmin):
-# #     list_display = ('Nom','Prenom','Region','bref_description')
-# admin.site.register(Agriculteur)
-# admin.site.register(Produit)
-
 from django.contrib import admin
-from .models import Category,Product,Commande
+from .models import Category,Product,Commande, Order, Cart
 
 # Register your models here.
 admin.site.site_header = "kakaodyar"
@@ -27,3 +19,5 @@ class AdminCommande(admin.ModelAdmin):
 admin.site.register(Product, AdminProduct)
 admin.site.register(Category, AdminCategorie)
 admin.site.register(Commande, AdminCommande)
+admin.site.register(Order)
+admin.site.register(Cart)

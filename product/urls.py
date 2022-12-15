@@ -5,13 +5,11 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('about', views.about, name='about'),
     path('produit', views.produit, name='produit'),
-    path('<int:myid>', views.detail, name='detail'),
-    path('cereal', views.cereal, name='cereal'),
-    path('maraichere', views.maraichere, name='maraichere'),
-    path('coton', views.coton, name='coton'),
-    path('formulaire_agri', views.formulaire_agri, name='formulaire_agri'),
+    path('product/<str:slug>/',views.detail, name="product"),
+    path('cart', views.cart, name='cart'),
+    path('cart/delete', views.delete_cart, name='delete-cart'),
+    path('product/<str:slug>/add-to-cart/',views.add_to_cart, name="add-to-cart"),
     path('checkout', views.checkout, name='checkout'),
     path('confirmation', views.confirmation, name='confirmation'),
-
 
 ]

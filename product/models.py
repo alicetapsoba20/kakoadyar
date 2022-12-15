@@ -1,3 +1,4 @@
+from django.contrib.auth import settings
 from django.db import models
 
 
@@ -15,6 +16,7 @@ class Category(models.Model):
 
 class Product(models.Model):
     nom = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200)
     prix = models.FloatField()
     description = models.TextField()
     Categories = models.ForeignKey(Category,related_name='categorie', on_delete=models.CASCADE)
@@ -43,55 +45,25 @@ class Commande(models.Model):
 
     def __str__(self):
         return self.nom
-# class Agriculteur(models.Model):
-#     Nom = models.CharField(max_length=50)
-#     Prenom = models.CharField(max_length=100)
-#     Tel = models.IntegerField()
-#     Région = models.CharField(max_length=100)
-#     #Produit =
-#     bref_description = models.TextField()
 
-#     def __str__(self):
-#         return f'{self.Nom} {self.Prenom}'
+class Order(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+    ordered = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.product.nom} ({self.quantity})"
 
 
-# class Produit(models.Model):
+class Cart (models.Model):
+        user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+        orders = models.ManyToManyField(Order)
+        ordered = models.BooleanField(default=False)
+        ordered_date = models.DateTimeField(blank=True, null=True)
 
-#     Nom_produit = models.CharField(max_length=250)
-#     choix = [
-#         ('cereal','Céréal'),
-#         ('maraichere','Maraichere'),
-#         ('coton','Coton')     
-#     ]
-
-#     choix_maraichere = [
-#         ('fruit','Fruit'),
-#         ('legume','Légume'),     
-#     ]
-
-#     categorie = models.CharField(max_length=100,choices=choix,default='Cereal')
-#     maraichere = models.CharField(max_length=100,choices=choix_maraichere,default='Fruit')
-    
-#     Prix = models.FloatField()
-#     stock = models.IntegerField()
-#     #Date_de_production = models.DateField()
-#     #Produit =
-#     image = models.ImageField(null = True, blank = True)
-
-#     # def __init__(self):
-#     #     return self.Nom
-
-#     def __str__(self):
-#         return f'{self.Nom_produit}'
-
-#     def imageURL(self):
-
-#          try:
-#             url=self.image.url
-
-#          except:
-#              url=''
-#          return url
+        def __str__(self):
+             return self.user.username
 
     
 
